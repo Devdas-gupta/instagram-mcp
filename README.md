@@ -1,7 +1,7 @@
 # 🤖 Instagram MCP — Local Browser Automation Server
 
 <p align="center">
-  <img src="./Mcp.png" width="100%" alt="Instagram MCP Banner">
+  <img src="./main.png" width="100%" alt="Instagram MCP Banner">
 </p>
 
 <p align="center">
