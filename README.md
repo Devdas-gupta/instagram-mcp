@@ -1,14 +1,61 @@
 # 🤖 Instagram MCP — Local Browser Automation Server
 
-> **100% Local · No Cloud · No API Keys · Real Chrome / Brave**
+<p align="center">
+  <img src="./Mcp.png" width="100%" alt="Instagram MCP Banner">
+</p>
 
-An MCP (Model Context Protocol) server that gives AI assistants (Claude Desktop, Gemini CLI, Cursor, Antigravity) full control of your real installed browser to automate Instagram — using manual-login browser sessions. No passwords or credentials are stored or needed.
+<p align="center">
+  <strong>Local-first Instagram automation for Claude Desktop, Gemini CLI, Cursor, and Antigravity.</strong>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-macOS%20%7C%20Windows-blue">
+  <img src="https://img.shields.io/badge/python-3.11%2B-green">
+  <img src="https://img.shields.io/badge/license-MIT-purple">
+  <img src="https://img.shields.io/badge/MCP-Compatible-orange">
+  <img src="https://img.shields.io/badge/local--only-no%20cloud-success">
+</p>
 
 ---
 
-## Architecture
+## ✨ Demo
 
-```
+### MCP Connected in Claude Desktop
+
+![MCP Connected](./Mcp.png)
+
+### Available Instagram Automation Tools
+
+![Tools](./Image.png)
+
+---
+
+# 🚀 What Is This?
+
+Instagram MCP is a fully local browser automation server built with:
+
+- FastMCP
+- Playwright
+- SQLite
+
+It allows AI assistants like:
+
+- Claude Desktop
+- Gemini CLI
+- Cursor
+- Antigravity
+
+to control a real browser session and automate Instagram safely using isolated local browser sessions.
+
+No cloud APIs.  
+No Instagram passwords stored.  
+No external backend required.
+
+---
+
+# 🏗 Architecture
+
+```text
 Claude Desktop / Gemini CLI / Cursor / Antigravity
              ↓  MCP Protocol (stdio)
          server.py  ←─── FastMCP
@@ -22,142 +69,327 @@ Claude Desktop / Gemini CLI / Cursor / Antigravity
    Logged-in Instagram Session
              ↓
    memory.py  ←─── SQLite (local)
-```
+````
 
 ---
 
-## ✅ Features
+# 🔥 Features
 
-### Browser Control (30 tools)
-| Tool | Description |
-|------|-------------|
-| `open_browser` | Launch browser with session |
-| `open_url` | Navigate to any URL |
-| `click_element` | Click by CSS/XPath/text selector |
-| `type_text` | Type into inputs |
-| `scroll_page` | Scroll in any direction |
-| `hover_element` | Hover over elements |
-| `press_key` | Press keyboard keys |
-| `switch_tab` | Switch browser tabs |
-| `close_tab` | Close a tab |
-| `list_tabs` | List all open tabs |
-| `current_url` | Get current URL |
-| `page_title` | Get page title |
-| `extract_text` | Extract page/element text |
-| `inspect_element` | Get element attributes & bounds |
-| `take_screenshot` | Capture page screenshot |
-| `new_tab` | Open new browser tab |
-| `evaluate_js` | Run JavaScript in browser |
+## Browser Automation
 
-### Instagram Tools
-| Tool | Description |
-|------|-------------|
-| `open_instagram` | Navigate to Instagram |
-| `login_instagram` | Log in (auto-saves session) |
-| `save_session` | Save cookies/storage state |
-| `load_session` | Load saved session |
-| `read_feed` | Read home feed posts |
-| `open_reel` | Open a specific Reel |
-| `read_comments` | Read post comments |
-| `like_post` | Like a post |
-| `post_comment` | Post a comment |
-| `monitor_notifications` | Check notifications |
-| `analyze_profile` | Analyze a user profile |
-| `summarize_visible_content` | Summarize current page |
-
-### Memory Tools (SQLite)
-| Tool | Description |
-|------|-------------|
-| `memory_stats` | DB row counts |
-| `list_screenshots` | Saved screenshots |
-| `list_visited_profiles` | Previously analyzed profiles |
-| `save_note` | Save a text note |
-| `list_notes` | List all notes |
-| `search_memory` | Search extracted text |
-| `session_history` | View session event log |
+| Tool              | Description             |
+| ----------------- | ----------------------- |
+| `open_browser`    | Launch browser          |
+| `open_url`        | Navigate to any URL     |
+| `click_element`   | Click by selector       |
+| `type_text`       | Type into fields        |
+| `scroll_page`     | Scroll pages            |
+| `hover_element`   | Hover elements          |
+| `press_key`       | Simulate keyboard input |
+| `switch_tab`      | Switch tabs             |
+| `close_tab`       | Close tabs              |
+| `list_tabs`       | List open tabs          |
+| `current_url`     | Get active URL          |
+| `page_title`      | Get page title          |
+| `extract_text`    | Extract page text       |
+| `inspect_element` | Inspect DOM elements    |
+| `take_screenshot` | Capture screenshots     |
+| `new_tab`         | Open new tabs           |
+| `evaluate_js`     | Execute JavaScript      |
 
 ---
 
-## 🗂 Project Structure
+## Instagram Automation
 
-```
+| Tool                        | Description         |
+| --------------------------- | ------------------- |
+| `open_instagram`            | Open Instagram      |
+| `login_instagram`           | Start login flow    |
+| `check_login_status`        | Verify manual login |
+| `read_feed`                 | Read home feed      |
+| `open_reel`                 | Open reels          |
+| `read_comments`             | Read comments       |
+| `like_post`                 | Like posts          |
+| `post_comment`              | Comment on posts    |
+| `monitor_notifications`     | Read notifications  |
+| `analyze_profile`           | Analyze profiles    |
+| `summarize_visible_content` | Summarize page      |
+
+---
+
+## Multi-Account Management
+
+| Tool                     | Description            |
+| ------------------------ | ---------------------- |
+| `list_accounts`          | List saved accounts    |
+| `switch_account`         | Switch accounts        |
+| `current_account`        | Show active account    |
+| `logout_current_account` | Logout current account |
+| `remove_account`         | Remove saved account   |
+| `rename_account_alias`   | Rename account alias   |
+
+---
+
+## Memory System (SQLite)
+
+| Tool                    | Description           |
+| ----------------------- | --------------------- |
+| `memory_stats`          | Database statistics   |
+| `list_screenshots`      | Saved screenshots     |
+| `list_visited_profiles` | Visited profiles      |
+| `save_note`             | Save notes            |
+| `list_notes`            | List notes            |
+| `search_memory`         | Search stored content |
+| `session_history`       | Session history logs  |
+
+---
+
+# 🔐 Authentication Model
+
+Instagram MCP uses a secure manual-login session model.
+
+Workflow:
+
+1. MCP opens a dedicated automation browser
+2. User logs in manually
+3. Session cookies are saved locally
+4. Future launches automatically reuse the session
+
+No passwords are stored.
+No credentials are written to disk.
+No personal browser profiles are modified.
+
+---
+
+# 🗂 Project Structure
+
+```text
 instagram-mcp/
-├── server.py              # MCP server entry point
-├── browser_controller.py  # Low-level Playwright tools
-├── instagram_tools.py     # Instagram-specific automation
-├── session_manager.py     # Session persistence & login
-├── memory.py              # SQLite local memory
-├── config.py              # Configuration & env loading
-├── logger.py              # Rich-enhanced logging
+├── server.py
+├── browser_controller.py
+├── instagram_tools.py
+├── session_manager.py
+├── memory.py
+├── config.py
+├── logger.py
 ├── requirements.txt
 ├── pyproject.toml
-├── .env.example
-├── .gitignore
 ├── README.md
 ├── HowToUse.md
+├── setup.py
+├── quick_setup.sh
+├── quick_setup.bat
 ├── configs/
 │   ├── claude_desktop_config.json
 │   ├── cursor_mcp_config.json
 │   ├── gemini_cli_config.json
 │   └── antigravity_config.json
-├── data/                  # Auto-created at runtime
-│   ├── sessions/          # Saved browser sessions
-│   ├── screenshots/       # Captured screenshots
-│   └── memory.db          # SQLite database
-└── logs/                  # Log files
+├── data/
+│   ├── sessions/
+│   ├── screenshots/
+│   └── memory.db
+└── logs/
 ```
 
 ---
 
-## ⚡ Quick Start
+# ⚡ Quick Start
+
+## macOS / Linux
 
 ```bash
-# 1. Clone / navigate to project
-cd /Users/devdaskumar/Desktop/Code/instagram-mcp
+git clone https://github.com/Devdas-gupta/instagram-mcp.git
 
-# 2. Create virtual environment
-python3.12 -m venv .venv
-source .venv/bin/activate
+cd instagram-mcp
 
-# 3. Install dependencies
-pip install -r requirements.txt
+chmod +x quick_setup.sh
 
-# 4. Install Playwright browsers
-playwright install chromium
-
-# 5. Copy and configure .env
-cp .env.example .env
-# Configure BROWSER_TYPE (chrome or brave) in .env if desired
-
-# 6. Run the server (for testing)
-python server.py
-
-# 7. Or run in stdio mode (for MCP clients)
-python server.py --transport stdio
+./quick_setup.sh
 ```
 
 ---
 
-## 🔐 Security
+## Windows
 
-- **No password storage** — session cookies and metadata are stored locally under `data/sessions/`
-- **No network requests** are made by this server except through your browser
-- **No telemetry, no cloud sync, no external APIs**
-- `.gitignore` protects `.env` and `data/` from accidental commits
+```powershell
+git clone https://github.com/Devdas-gupta/instagram-mcp.git
 
----
+cd instagram-mcp
 
-## ⚠️ Responsible Use
-
-This tool controls a real browser session. Please:
-
-- Do **not** spam likes/comments (Instagram rate limits)
-- Do **not** use this to violate Instagram's Terms of Service
-- Add **delays** between automated actions
-- Use **headless=false** when developing to monitor what's happening
+quick_setup.bat
+```
 
 ---
 
-## 📄 License
+# 🧠 Setup Flow
 
-MIT — personal and educational use.
+The installer automatically:
+
+* detects Python
+* creates `.venv`
+* installs dependencies
+* installs Playwright
+* verifies startup
+* generates MCP configs
+* prepares Claude Desktop integration
+
+---
+
+# 🔌 Claude Desktop Integration
+
+After setup:
+
+1. Open Claude Desktop config
+2. Paste generated MCP config
+3. Restart Claude Desktop
+4. Instagram MCP tools appear automatically
+
+---
+
+# 🔄 Login Flow
+
+1. Ask Claude to open Instagram
+2. MCP opens isolated automation browser
+3. Login manually in that browser
+4. Say:
+
+   * `done`
+   * or `I am logged in`
+5. Session saves automatically
+
+Future launches reuse the saved session.
+
+---
+
+# 🖥 Cross Platform Support
+
+Supported platforms:
+
+* macOS
+* Windows
+
+Supported browsers:
+
+* Chrome
+* Brave
+
+---
+
+# 🛡 Security
+
+* No password storage
+* No telemetry
+* No cloud sync
+* No external APIs
+* Local-only execution
+* Isolated browser profiles
+* Separate sessions per account
+* Runtime data excluded via `.gitignore`
+
+---
+
+# ⚠️ Responsible Use
+
+This tool controls a real browser session.
+
+Please:
+
+* Avoid spam automation
+* Respect Instagram rate limits
+* Avoid abusive behavior
+* Use delays between actions
+* Monitor automation carefully
+
+Users are responsible for complying with platform rules and local laws.
+
+---
+
+# 📦 Tech Stack
+
+* Python 3.11+
+* FastMCP
+* Playwright
+* SQLite
+* Rich
+* asyncio
+
+---
+
+# 🧪 Current Status
+
+Current release:
+
+* Early production / beta quality
+
+The architecture includes:
+
+* session isolation
+* multi-account management
+* cross-platform portability
+* stdio-safe MCP transport
+* venv-first runtime
+* isolated Playwright profiles
+
+---
+
+# 🛣 Roadmap
+
+Planned future improvements:
+
+* TikTok provider
+* X/Twitter provider
+* YouTube provider
+* LinkedIn provider
+* Better stealth system
+* Browser attachment mode
+* AI workflow presets
+* Advanced reporting system
+
+---
+
+# 🤝 Contributing
+
+Pull requests, fixes, and ideas are welcome.
+
+Please:
+
+* open issues
+* suggest improvements
+* share workflows
+* improve tooling
+
+---
+
+# ⚠️ Disclaimer
+
+This project is not affiliated with Instagram or Meta.
+
+This repository is provided for:
+
+* educational use
+* research
+* local automation experimentation
+
+Use responsibly.
+
+---
+
+# 📄 License
+
+MIT License
+
+See:
+[LICENSE](./LICENSE)
+
+---
+
+# ⭐ Support The Project
+
+If this project helped you:
+
+* Star the repository
+* Share the project
+* Open issues
+* Contribute improvements
+
+
