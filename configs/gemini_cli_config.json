@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "instagram-mcp": {
+      "command": "/Users/devdaskumar/Desktop/Code/instagram-mcp/.venv/bin/python",
+      "args": [
+        "/Users/devdaskumar/Desktop/Code/instagram-mcp/server.py",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "PYTHONPATH": "/Users/devdaskumar/Desktop/Code/instagram-mcp"
+      },
+      "timeout": 60
+    }
+  }
+}

@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "instagram-mcp"
+version = "1.0.0"
+description = "Local MCP browser automation server for Instagram — no cloud, no API keys"
+authors = [{ name = "Local User" }]
+requires-python = ">=3.12"
+license = { text = "MIT" }
+readme = "README.md"
+
+dependencies = [
+    "mcp>=1.0.0",
+    "fastmcp>=0.1.0",
+    "playwright>=1.44.0",
+    "aiosqlite>=0.20.0",
+    "python-dotenv>=1.0.0",
+    "pydantic>=2.0.0",
+    "rich>=13.0.0",
+    "asyncio-throttle>=1.0.2",
+]
+
+[project.scripts]
+instagram-mcp = "server:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.mypy]
+python_version = "3.12"
+strict = false
+ignore_missing_imports = true

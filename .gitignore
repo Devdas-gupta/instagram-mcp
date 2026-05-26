@@ -1,0 +1,30 @@
+# Sessions
+data/sessions/*
+!data/sessions/.gitkeep
+
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Screenshots
+screenshots/*
+!screenshots/.gitkeep
+
+# Runtime DB
+data/memory.db
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
